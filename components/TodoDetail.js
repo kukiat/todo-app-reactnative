@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
 
 class TodoDetail extends Component {
-
+  static navigationOptions = {
+    title: 'Detail'
+  }
   handleDelete = () => {
     const { todo, deleteTodo } = this.props.navigation.state.params
     deleteTodo(todo.id)

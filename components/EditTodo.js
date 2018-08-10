@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { View, StyleSheet, TextInput, Button } from 'react-native'
 
 class EditTodo extends Component {
+  static navigationOptions = {
+    title: 'Edit'
+  }
+
   constructor(props) {
     super(props)
     const { id, title, description } = this.props.navigation.state.params.todo

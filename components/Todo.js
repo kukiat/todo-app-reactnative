@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Switch } from 'react-native';
+import { StyleSheet, View, Button, TouchableOpacity, AsyncStorage } from 'react-native';
 import TodoItem from './TodoItem'
 import CheckBox from 'react-native-check-box'
 import FilterTodo from './FilterTodo'
 
 class Todo extends Component {
+  static navigationOptions = {
+    title: 'Home'
+  }
   constructor(props) {
     super(props)
     this.state = {
-      todos: [
-        { id: 0, title: 'todstodstods', description: 'Prebid Adds Support for Mobile App Header', status: false },
-        { id: 1, title: 'Lorem Ipsum', description: 'Prebid Adds Support for Mobile App Header', status: false },
-        { id: 5, title: 'todstLorem odstods', description: 'Prebid Adds Support for Mobile App Header', status: false },
-      ]
+      todo: []
     }
+  }
+
+  async componentDidMount() {
+    try {
+      const todos = await AsyncStorage.getItem('todos')
+      if(todos === null) {
+        await AsyncStorage.setItem('todos', JSON.stringify([]))
+      }else {
+        this.setState({ todos: JSON.parse(todos) })
+      }
+    }catch(err) {
+      alert(err)
+    }
+  }
+
+  async componentDidUpdate() {
+    await AsyncStorage.setItem('todos', JSON.stringify(this.state.todos))
   }
 
   createTodo = ({ title, description }) => {
@@ -29,6 +45,7 @@ class Todo extends Component {
     })
   }
 
+  
   editTodo = ({ id, title, description }) => {
     const newTodos = [...this.state.todos]
     const index = newTodos.findIndex(todo => todo.id === id)
