@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default class App extends Component {
+class Todo extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,14 +13,34 @@ export default class App extends Component {
     }
   }
 
-  
+  createTodo = ({ title, description }) => {
+    const { todos } = this.state
+    this.setState({
+      todos: [ 
+        ...todos, { 
+          id: todos.length, 
+          title, 
+          description,
+          status: false
+        }
+      ]
+    })
+  }
+
   render() {
     const { todos } = this.state
     return (
       <View style={styles.container}>
         { todos.map(todo => (
-          <Text key={todo.id} style={styles.welcome}>{todo.title}</Text>
+          <Text key={todo.id} style={styles.todoItem}>{todo.title}</Text>
         ))}
+        <Button 
+          title='CREATE'
+          style={styles.createButton}
+          onPress={() => this.props.navigation.navigate('Create', {
+            createTodo: this.createTodo
+          })}
+        />
       </View>
     );
   }
@@ -28,19 +48,21 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#F5F5F5',
   },
-  welcome: {
+  todoItem: {
+    height: 40,
+    backgroundColor: '#FFF',
+    marginTop: 5,
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
-  instructions: {
+  createButton: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#FFF',
+    backgroundColor: '#3B95F7',
+
   },
 });
+
+export default Todo
