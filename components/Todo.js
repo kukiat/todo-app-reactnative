@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Switch } from 'react-native';
 import TodoItem from './TodoItem'
+import CheckBox from 'react-native-check-box'
+import FilterTodo from './FilterTodo'
 
 class Todo extends Component {
   constructor(props) {
@@ -15,10 +17,8 @@ class Todo extends Component {
   }
 
   createTodo = ({ title, description }) => {
-    const { todos } = this.state
     this.setState({
-      todos: [ 
-        ...todos, { 
+      todos: [ ...this.state.todos, { 
           id: todos.length, 
           title, 
           description,
@@ -36,36 +36,44 @@ class Todo extends Component {
     const newTodos = [...this.state.todos]
     const indexTodo = newTodos.findIndex(todo => todo.id === id)
     newTodos.splice(indexTodo, 1)
-    this.setState({
-      todos: newTodos
-    })
+    this.setState({ todos: newTodos })
+  }
+
+  filterTodos = (type) => {
+    const { todos } = this.state
+    switch(type) {
+      case 'ALL':
+        break;
+      case 'COMPLETE':
+        break;
+      case 'ACTIVE':
+        break;
+    }
+  }
+
+  checkTodo = ({ id, status }) => {
+    const newTodos = [...this.state.todos]
+    newTodos[newTodos.findIndex(todo => todo.id === id)].status = !status
+    this.setState({ todos: newTodos })
   }
 
   render() {
     const { todos } = this.state
     return (
       <View style={styles.container}>
-        <View style={{ flexDirection: 'row', justtidyContent: 'spaces-round'}}>
-          <TouchableOpacity style={styles.filterBtn}>
-            <Text>All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterBtn}>
-            <Text>Complete</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterBtn}>
-            <Text>Active</Text>
-          </TouchableOpacity>
-        </View>
+        <FilterTodo/>
         <View style={{ marginTop: 20 }}>
           { todos.map(todo => (
             <TouchableOpacity 
               key={todo.id} 
+              style={styles.todoItem}
               onPress={() => this.props.navigation.navigate('TodoDetail', { 
                 todo, 
                 editTodo: this.editTodo,
                 deleteTodo: this.deleteTodo
               })}
             >
+              <CheckBox isChecked={ todo.status } onClick={() => this.checkTodo(todo)}/>
               <TodoItem todo={todo}/>
             </TouchableOpacity>
           ))}
@@ -88,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   todoItem: {
+    flexDirection: 'row',
     height: 40,
     backgroundColor: '#FFF',
     marginTop: 5,

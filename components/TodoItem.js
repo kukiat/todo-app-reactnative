@@ -9,7 +9,7 @@ class TodoItem extends Component {
         <Text 
           style={{
             height: 40,
-            backgroundColor: '#FFF',
+            backgroundColor: todo.status ? 'red' : '#FFF',
             marginTop: 5,
             fontSize: 20
           }}
