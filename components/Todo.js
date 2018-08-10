@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Switch } from 'react-native';
+import TodoItem from './TodoItem'
 
 class Todo extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Todo extends Component {
       todos: [
         { id: 0, title: 'todstodstods', description: 'Prebid Adds Support for Mobile App Header', status: false },
         { id: 1, title: 'Lorem Ipsum', description: 'Prebid Adds Support for Mobile App Header', status: false },
-        { id: 2, title: 'todstLorem odstods', description: 'Prebid Adds Support for Mobile App Header', status: false },
+        { id: 5, title: 'todstLorem odstods', description: 'Prebid Adds Support for Mobile App Header', status: false },
       ]
     }
   }
@@ -31,29 +32,47 @@ class Todo extends Component {
 
   }
 
-  deleteTodo = () => {
-
+  deleteTodo = (id) => {
+    const newTodos = [...this.state.todos]
+    const indexTodo = newTodos.findIndex(todo => todo.id === id)
+    newTodos.splice(indexTodo, 1)
+    this.setState({
+      todos: newTodos
+    })
   }
-  
+
   render() {
     const { todos } = this.state
     return (
       <View style={styles.container}>
-        { todos.map(todo => (
-          <TouchableOpacity 
-            key={todo.id} 
-            onPress={() => this.props.navigation.navigate('TodoList', { 
-              todo, 
-              editTodo: this.editTodo,
-              deleteTodo: this.deleteTodo
-            })}
-          >
-            <Text style={styles.todoItem}>{todo.title}</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <TouchableOpacity style={{ backgroundColor: 'red', width: 100, height: 30 }}>
+            <Text>All</Text>
           </TouchableOpacity>
-        ))}
+          <TouchableOpacity style={{ backgroundColor: 'blue', width: 100, height: 30 }}>
+            <Text>Complete</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ backgroundColor: 'green', width: 100, height: 30 }}>
+            <Text>Active</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ marginTop: 20 }}>
+          { todos.map(todo => (
+            <TouchableOpacity 
+              key={todo.id} 
+              onPress={() => this.props.navigation.navigate('TodoList', { 
+                todo, 
+                editTodo: this.editTodo,
+                deleteTodo: this.deleteTodo
+              })}
+            >
+              <TodoItem todo={todo}/>
+            </TouchableOpacity>
+          ))}
+        </View>
         <Button 
           title='CREATE'
-          style={styles.createButton}
+          style={{ flex: 1 }}
           onPress={() => this.props.navigation.navigate('Create', {
             createTodo: this.createTodo
           })}

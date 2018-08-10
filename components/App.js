@@ -8,7 +8,7 @@ import TodoList from './TodoList'
 const Router = createStackNavigator({
   Todo: { screen: Todo },
   Create: { screen: Create },
-  TodoList
+  TodoList:  { screen: TodoList }
 })
 
 const App = () => {

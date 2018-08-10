@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
 
 class TodoList extends Component {
+
+  handleDelete = () => {
+    const { todo, deleteTodo } = this.props.navigation.state.params
+    deleteTodo(todo.id)
+    this.props.navigation.goBack()
+  }
+
   render() {
     const { todo } = this.props.navigation.state.params
     return (
@@ -16,7 +23,7 @@ class TodoList extends Component {
           />
           <Button 
             title='Delete' 
-            onPress={() => alert('xxxx')}
+            onPress={this.handleDelete}
           />
         </View>
       </View>
