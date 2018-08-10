@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
 
-class TodoList extends Component {
+class TodoDetail extends Component {
 
   handleDelete = () => {
     const { todo, deleteTodo } = this.props.navigation.state.params
@@ -31,4 +31,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList
+export default TodoDetail

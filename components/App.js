@@ -3,12 +3,12 @@ import { View } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 import Todo from './Todo'
 import Create from './Create'
-import TodoList from './TodoList'
+import TodoDetail from './TodoDetail'
 
 const Router = createStackNavigator({
   Todo: { screen: Todo },
   Create: { screen: Create },
-  TodoList:  { screen: TodoList }
+  TodoDetail:  { screen: TodoDetail }
 })
 
 const App = () => {

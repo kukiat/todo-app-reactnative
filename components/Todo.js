@@ -45,14 +45,14 @@ class Todo extends Component {
     const { todos } = this.state
     return (
       <View style={styles.container}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-          <TouchableOpacity style={{ backgroundColor: 'red', width: 100, height: 30 }}>
+        <View style={{ flexDirection: 'row', justtidyContent: 'spaces-round'}}>
+          <TouchableOpacity style={styles.filterBtn}>
             <Text>All</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ backgroundColor: 'blue', width: 100, height: 30 }}>
+          <TouchableOpacity style={styles.filterBtn}>
             <Text>Complete</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ backgroundColor: 'green', width: 100, height: 30 }}>
+          <TouchableOpacity style={styles.filterBtn}>
             <Text>Active</Text>
           </TouchableOpacity>
         </View>
@@ -60,7 +60,7 @@ class Todo extends Component {
           { todos.map(todo => (
             <TouchableOpacity 
               key={todo.id} 
-              onPress={() => this.props.navigation.navigate('TodoList', { 
+              onPress={() => this.props.navigation.navigate('TodoDetail', { 
                 todo, 
                 editTodo: this.editTodo,
                 deleteTodo: this.deleteTodo
@@ -99,6 +99,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#3B95F7',
 
   },
+  filterBtn: {
+    width: 80,
+    height: 30,
+    borderWidth: 1,
+    borderRadius: 5
+  }
 });
 
 export default Todo
