@@ -9,6 +9,11 @@ class TodoDetail extends Component {
     this.props.navigation.goBack()
   }
 
+  handleEdit = () => {
+    const { todo, editTodo } = this.props.navigation.state.params
+    this.props.navigation.navigate('EditTodo', { todo, editTodo })
+  }
+
   render() {
     const { todo } = this.props.navigation.state.params
     return (
@@ -19,7 +24,7 @@ class TodoDetail extends Component {
         <View style={{ flex:1, flexDirection: 'row'}}>
           <Button 
             title='Edit' 
-            onPress={() => alert('xxxx')}
+            onPress={this.handleEdit}
           />
           <Button 
             title='Delete' 

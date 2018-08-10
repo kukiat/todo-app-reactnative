@@ -17,8 +17,9 @@ class Todo extends Component {
   }
 
   createTodo = ({ title, description }) => {
+    const { todos } = this.state
     this.setState({
-      todos: [ ...this.state.todos, { 
+      todos: [ ...todos, { 
           id: todos.length, 
           title, 
           description,
@@ -28,8 +29,17 @@ class Todo extends Component {
     })
   }
 
-  editTodo = () => {
-
+  editTodo = ({ id, title, description }) => {
+    const newTodos = [...this.state.todos]
+    const index = newTodos.findIndex(todo => todo.id === id)
+    newTodos[index].title = title
+    newTodos[index].description = description
+    this.setState({ todos: newTodos })
+    this.props.navigation.navigate('TodoDetail', { 
+      todo: this.state.todos[index], 
+      editTodo: this.editTodo,
+      deleteTodo: this.deleteTodo
+    })
   }
 
   deleteTodo = (id) => {
@@ -59,15 +69,16 @@ class Todo extends Component {
 
   render() {
     const { todos } = this.state
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-        <FilterTodo/>
+        <FilterTodo filterTodos={this.filterTodos}/>
         <View style={{ marginTop: 20 }}>
           { todos.map(todo => (
             <TouchableOpacity 
               key={todo.id} 
               style={styles.todoItem}
-              onPress={() => this.props.navigation.navigate('TodoDetail', { 
+              onPress={() => navigate('TodoDetail', { 
                 todo, 
                 editTodo: this.editTodo,
                 deleteTodo: this.deleteTodo
@@ -80,8 +91,7 @@ class Todo extends Component {
         </View>
         <Button 
           title='CREATE'
-          style={{ flex: 1 }}
-          onPress={() => this.props.navigation.navigate('Create', {
+          onPress={() => navigate('Create', {
             createTodo: this.createTodo
           })}
         />
