@@ -105,14 +105,7 @@ const styles = StyleSheet.create({
   createButton: {
     textAlign: 'center',
     color: '#FFF',
-    backgroundColor: '#3B95F7',
-
-  },
-  filterBtn: {
-    width: 80,
-    height: 30,
-    borderWidth: 1,
-    borderRadius: 5
+    backgroundColor: '#3B95F7'
   }
 });
 
