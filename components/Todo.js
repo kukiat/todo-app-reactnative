@@ -5,13 +5,11 @@ import CheckBox from 'react-native-check-box'
 import FilterTodo from './FilterTodo'
 
 class Todo extends Component {
-  static navigationOptions = {
-    title: 'Home'
-  }
   constructor(props) {
     super(props)
     this.state = {
-      todo: []
+      todos: [],
+      filter: 'ALL'
     }
   }
 
@@ -66,15 +64,28 @@ class Todo extends Component {
     this.setState({ todos: newTodos })
   }
 
-  filterTodos = (type) => {
-    const { todos } = this.state
+  switchFilter = (type) => {
     switch(type) {
       case 'ALL':
-        break;
+        this.setState({ filter: 'ALL'})
+        return
       case 'COMPLETE':
-        break;
+        this.setState({ filter: 'COMPLETE'})
+        return
       case 'ACTIVE':
-        break;
+        this.setState({ filter: 'ACTIVE'})
+        return
+    }
+  }
+
+  filterTodos = (todos, filter) => {
+    switch(filter) {
+      case 'ALL':
+        return todos.map(todo => todo)
+      case 'COMPLETE':
+        return todos.filter(todo => todo.status === true)
+      case 'ACTIVE':
+        return todos.filter(todo => todo.status === false)
     }
   }
 
@@ -85,13 +96,14 @@ class Todo extends Component {
   }
 
   render() {
-    const { todos } = this.state
+    const { todos, filter } = this.state
+    const filterTodos = this.filterTodos(todos, filter)
     const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-        <FilterTodo filterTodos={this.filterTodos}/>
+        <FilterTodo switchFilter={this.switchFilter}/>
         <View style={{ marginTop: 20 }}>
-          { todos.map(todo => (
+          { filterTodos.map(todo => (
             <TouchableOpacity 
               key={todo.id} 
               style={styles.todoItem}
@@ -120,7 +132,7 @@ class Todo extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    // backgroundColor: '#F5F5F5',
   },
   todoItem: {
     flexDirection: 'row',

@@ -1,16 +1,16 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export default () => {
+export default (props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.filterBtn}>
+      <TouchableOpacity style={styles.filterBtn} onPress={() => props.switchFilter('ALL')}>
         <Text>All</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.filterBtn}>
+      <TouchableOpacity style={styles.filterBtn} onPress={() => props.switchFilter('COMPLETE')}>
         <Text>Complete</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.filterBtn}>
+      <TouchableOpacity style={styles.filterBtn} onPress={() => props.switchFilter('ACTIVE')}>
         <Text>Active</Text>
       </TouchableOpacity>
     </View>
