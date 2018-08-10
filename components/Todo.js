@@ -43,7 +43,6 @@ class Todo extends Component {
     })
   }
 
-  
   editTodo = ({ id, title, description }) => {
     const newTodos = [...this.state.todos]
     const index = newTodos.findIndex(todo => todo.id === id)
@@ -65,6 +64,7 @@ class Todo extends Component {
   }
 
   switchFilter = (type) => {
+    if(type === this.state.filter) return
     switch(type) {
       case 'ALL':
         this.setState({ filter: 'ALL'})
