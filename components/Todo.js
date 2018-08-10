@@ -39,7 +39,8 @@ class Todo extends Component {
           description,
           status: false
         }
-      ]
+      ],
+      filter: 'ALL'
     })
   }
 
@@ -64,24 +65,15 @@ class Todo extends Component {
   }
 
   switchFilter = (type) => {
-    if(type === this.state.filter) return
-    switch(type) {
-      case 'ALL':
-        this.setState({ filter: 'ALL'})
-        return
-      case 'COMPLETE':
-        this.setState({ filter: 'COMPLETE'})
-        return
-      case 'ACTIVE':
-        this.setState({ filter: 'ACTIVE'})
-        return
-    }
+    if(type === this.state.filter) 
+      return
+    this.setState({ filter: type })
   }
 
   filterTodos = (todos, filter) => {
     switch(filter) {
       case 'ALL':
-        return todos.map(todo => todo)
+        return todos
       case 'COMPLETE':
         return todos.filter(todo => todo.status === true)
       case 'ACTIVE':
