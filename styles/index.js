@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
   textDefault: {
     fontSize: 18,
-    fontWeight: '500'
+    fontWeight: '400'
   },
   textBold: {
     textAlign: 'center',

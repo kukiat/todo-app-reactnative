@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import globalStyle from '../styles'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import globalStyles from '../styles'
 
 class Create extends Component {
   state = {
     title: '',
-    description: ''
+    description: '',
+    colorText: '#D9D9D9'
   }
 
   handleCreate = () => {
@@ -19,33 +20,43 @@ class Create extends Component {
 
   render() {
     return (
-      <View style={style.container}>
-        <TextInput 
-          style={{height: 30, borderColor: 'gray', borderWidth: 1, marginBottom: 10}}
-          placeholder='Title'
-          onChangeText={(value) => this.setState({ title: value})}
-        />
-        <TextInput 
-          style={{ height: 50, borderColor: 'grey', borderWidth: 1, marginBottom: 10}}
-          placeholder='Description'
-          onChangeText={(value) => this.setState({ description: value})}
-        />
+      <View style={[globalStyles.layout, { flex: 1, padding: 25 }]}>
+        <View style={styles.titleInput}>
+          <TextInput 
+            style={[globalStyles.textDefault, { color: this.state.colorText }]}
+            placeholder='Title'
+            onChangeText={(value) => this.setState({ title: value})}
+            onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
+          />
+        </View>
+        <View style={{ flex: 6, marginTop: 20 }}>
+          <TextInput 
+            style={[styles.descriptionInput, { color: this.state.colorText }]}
+            placeholder='Description'
+            onChangeText={(value) => this.setState({ description: value})}
+            onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
+          />
+        </View>
         <TouchableOpacity 
-          style={globalStyle.buttonSuccess}
+          style={globalStyles.buttonSuccess}
           onPress={this.handleCreate}
         >
-          <Text style={[globalStyle.textBold, { color: '#FFF' }]}>Submit</Text>
+          <Text style={[globalStyles.textBold, { color: '#FFF' }]}>Submit</Text>
         </TouchableOpacity>
       </View>
     )
   }
 }
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 15,
+const styles = StyleSheet.create({
+  titleInput: {
+    height: 40, 
+    borderBottomWidth: 1,
+    borderBottomColor: '#D5D5D5',
+    fontSize: 20
+  },
+  descriptionInput: {
+    fontSize: 20,
   }
 })
-
 export default Create
