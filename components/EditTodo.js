@@ -27,18 +27,16 @@ class EditTodo extends Component {
     const { title, description } = this.state
     return(
       <View style={[globalStyles.layout, { padding: 25 }]}>
-        <View style={{ flex: 1 }}>
-          <Text style={[globalStyles.textDefault, { marginBottom: 15 }]}>Title</Text>
+        <View style={globalStyles.titleInput}>
           <TextInput 
-            style={globalStyles.textInput}
+            style={[globalStyles.textInput, { color: '#3C3C3C' }]}
             value={title} 
             onChangeText={(value) => this.setState({ title: value})}
           />
         </View>
-        <View style={{ flex: 5}}>
-          <Text style={[globalStyles.textDefault, { marginBottom: 15 }]}>Description</Text>
+        <View style={{ flex: 6, marginTop: 20 }}>
           <TextInput 
-            style={globalStyles.textArea}
+            style={[globalStyles.textArea, { color: '#3C3C3C' }]}
             value={description} 
             onChangeText={value => this.setState({ description: value })}
           />

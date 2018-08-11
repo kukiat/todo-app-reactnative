@@ -21,7 +21,7 @@ class Create extends Component {
   render() {
     return (
       <View style={[globalStyles.layout, { flex: 1, padding: 25 }]}>
-        <View style={styles.titleInput}>
+        <View style={globalStyles.titleInput}>
           <TextInput 
             style={[globalStyles.textDefault, { color: this.state.colorText }]}
             placeholder='Title'

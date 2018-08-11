@@ -37,7 +37,7 @@ export default StyleSheet.create({
   textHeader: {
     textAlign: 'center',
     fontSize: 22,
-    fontWeight: '700'
+    fontWeight: '500'
   },
   textInput: {
     fontSize: 18,
@@ -46,5 +46,11 @@ export default StyleSheet.create({
   textArea: {
     fontSize: 18,
     color: '#D2D2D2'
+  },
+  titleInput: {
+    height: 40, 
+    borderBottomWidth: 1,
+    borderBottomColor: '#D5D5D5',
+    fontSize: 20
   }
 })
