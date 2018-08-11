@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableOpacity, AsyncStorage, ScrollView, Text } fr
 import TodoItem from './TodoItem'
 import CheckBox from 'react-native-check-box'
 import FilterTodo from './FilterTodo'
-import globalStyle, { BACKGROUND_COLOR } from '../styles'
+import globalStyles from '../styles'
 
 class Todo extends Component {
   static navigationOptions = {
@@ -99,7 +99,7 @@ class Todo extends Component {
     const filterTodos = this.filterTodos(todos, filter)
     const { navigate } = this.props.navigation
     return (
-      <View style={styles.container}>
+      <View style={globalStyles.layout}>
         <FilterTodo filter={filter} switchFilter={this.switchFilter}/>
         <ScrollView style={{marginTop: 4}}>
           { filterTodos.map(todo => (
@@ -127,9 +127,9 @@ class Todo extends Component {
             onPress={() => navigate('Create', {
               createTodo: this.createTodo
             })}
-            style={globalStyle.buttonOriginal}
+            style={globalStyles.buttonOriginal}
           >
-            <Text style={[globalStyle.textBold, {color: '#FFF'}]}>Create Todo</Text>
+            <Text style={[globalStyles.textBold, {color: '#FFF'}]}>Create Todo</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -138,10 +138,6 @@ class Todo extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: BACKGROUND_COLOR,
-  },
   todoItem: {
     flexDirection: 'row',
     height: 46,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
+import globalStyles from '../styles'
 
 class TodoDetail extends Component {
   static navigationOptions = {
@@ -19,19 +20,21 @@ class TodoDetail extends Component {
   render() {
     const { todo } = this.props.navigation.state.params
     return (
-      <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
-        <Text>{todo.title}</Text>
-        <Text>{todo.description}</Text>
-        <View style={{ flex:1, flexDirection: 'row'}}>
-          <Button 
+      <View style={[globalStyles.layout, { padding: 25 }]}>
+        <View style={{ height: 40, borderBottomWidth: 1, borderBottomColor: '#b3c9db' }}>
+          <Text style={[globalStyles.textHeader, { color: '#021312' }]}>{todo.title}</Text>
+        </View>
+        <View style={{ flex: 1, marginTop: 12 }}>
+          <Text style={globalStyles.textDefault}>{todo.description}</Text>
+        </View>
+        <Button 
             title='Edit' 
             onPress={this.handleEdit}
-          />
+        />
           <Button 
             title='Delete' 
             onPress={this.handleDelete}
           />
-        </View>
       </View>
     )
   }

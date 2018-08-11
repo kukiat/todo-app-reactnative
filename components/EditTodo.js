@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, TextInput, Button } from 'react-native'
+import { View, TouchableOpacity, TextInput, Text } from 'react-native'
+import globalStyles from '../styles'
 
 class EditTodo extends Component {
   static navigationOptions = {
@@ -23,21 +24,31 @@ class EditTodo extends Component {
   }
 
   render() {
-    const { id, title, description } = this.state
+    const { title, description } = this.state
     return(
-      <View>
-        <TextInput 
-          value={title} 
-          onChangeText={(value) => this.setState({ title: value})}
-        />
-        <TextInput 
-          value={description} 
-          onChangeText={value => this.setState({ description: value })}
-        />
-        <Button 
-          title='Submit' 
+      <View style={[globalStyles.layout, { padding: 25 }]}>
+        <View style={{ flex: 1 }}>
+          <Text style={[globalStyles.textDefault, { marginBottom: 15 }]}>Title</Text>
+          <TextInput 
+            style={globalStyles.textInput}
+            value={title} 
+            onChangeText={(value) => this.setState({ title: value})}
+          />
+        </View>
+        <View style={{ flex: 5}}>
+          <Text style={[globalStyles.textDefault, { marginBottom: 15 }]}>Description</Text>
+          <TextInput 
+            style={globalStyles.textArea}
+            value={description} 
+            onChangeText={value => this.setState({ description: value })}
+          />
+        </View>
+        <TouchableOpacity 
+          style={[globalStyles.buttonSuccess]}
           onPress={this.handleEdit}
-        />
+        >
+          <Text style={[globalStyles.textBold, { color: '#FFF' }]}>Submit</Text>
+        </TouchableOpacity>
       </View>
     )
   }

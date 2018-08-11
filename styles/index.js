@@ -5,17 +5,25 @@ export const ORANGE_COLOR = '#EC5A65'
 export const BACKGROUND_COLOR = '#F3F4F4'
 
 export default StyleSheet.create({
+  layout: { 
+    flex: 1, 
+    backgroundColor: BACKGROUND_COLOR 
+  },
   buttonSuccess: {
     backgroundColor: GREEN_COLOR,
-    borderRadius: 15,
+    borderRadius: 25,
     height: 40,
     justifyContent: 'center'
   },
   buttonOriginal: {
     backgroundColor: ORANGE_COLOR,
-    borderRadius: 15,
+    borderRadius: 25,
     height: 40,
     justifyContent: 'center'
+  },
+  textDefault: {
+    fontSize: 18,
+    fontWeight: '500'
   },
   textBold: {
     textAlign: 'center',
@@ -24,6 +32,19 @@ export default StyleSheet.create({
   },
   textNormal: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 18,
   },
+  textHeader: {
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: '700'
+  },
+  textInput: {
+    fontSize: 18,
+    color: '#D2D2D2'
+  },
+  textArea: {
+    fontSize: 18,
+    color: '#D2D2D2'
+  }
 })
