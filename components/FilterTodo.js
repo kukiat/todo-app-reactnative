@@ -5,12 +5,17 @@ export default ({ switchFilter, filter }) => {
   const btnType = ['ALL', 'COMPLETE', 'ACTIVE']
   return (
     <View style={styles.container}>
-      { btnType.map(type => (
+      { btnType.map((type, index) => (
         <TouchableOpacity 
+          key={index}
           style={filter === type ? styles.enableFilterBtn : styles.disableFilterBtn} 
           onPress={() => switchFilter(type)}
         >
-          <Text style={styles.text}>{type}</Text>
+          <Text 
+            style={filter === type ? styles.enableText : styles.disableText}
+          >
+            {type}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -31,8 +36,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderRadius: 5,
     justifyContent: 'center',
-    borderColor: '#FF672B',
-    color: '#FF672B'
+    borderColor: '#EC5A65',
   },
   disableFilterBtn: {
     width: 100,
@@ -42,10 +46,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#9da0a0',
   },
-  text: {
+  disableText: {
     textAlign: 'center',
     fontSize: 16,
-    textTransform: 'capitalize'
-    // color: '#6A6A6A'
+    textTransform: 'capitalize',
+    color: '#9da0a0'
+  },
+  enableText: {
+    textAlign: 'center',
+    fontSize: 16,
+    textTransform: 'capitalize',
+    color: '#EC5A65'
   }
 })

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, TouchableOpacity, AsyncStorage, ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, AsyncStorage, ScrollView, Text } from 'react-native';
 import TodoItem from './TodoItem'
 import CheckBox from 'react-native-check-box'
 import FilterTodo from './FilterTodo'
+import globalStyle, { BACKGROUND_COLOR } from '../styles'
 
 class Todo extends Component {
   static navigationOptions = {
@@ -112,8 +113,8 @@ class Todo extends Component {
                 })}
               >
                 <CheckBox 
-                  style={{ marginRight: 10, marginLeft: 10 }} 
-                  checkBoxColor='#9da0a0'
+                  style={{ marginHorizontal: 10 }} 
+                  checkBoxColor='#EC5A65'
                   isChecked={ todo.status } 
                   onClick={() => this.checkTodo(todo)}
                 />
@@ -121,12 +122,16 @@ class Todo extends Component {
             </TouchableOpacity>
           ))}
         </ScrollView>
-        <Button 
-          title='CREATE'
-          onPress={() => navigate('Create', {
-            createTodo: this.createTodo
-          })}
-        />
+        <View style={{ paddingHorizontal: 15, paddingVertical: 5 }}>
+          <TouchableOpacity 
+            onPress={() => navigate('Create', {
+              createTodo: this.createTodo
+            })}
+            style={globalStyle.buttonOriginal}
+          >
+            <Text style={[globalStyle.textBold, {color: '#FFF'}]}>Create Todo</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -135,20 +140,15 @@ class Todo extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F4',
+    backgroundColor: BACKGROUND_COLOR,
   },
   todoItem: {
     flexDirection: 'row',
     height: 46,
     backgroundColor: '#FFF',
-    marginBottom: 1,
+    marginBottom: 4,
     alignItems: 'center',
     fontSize: 20,
-  },
-  createButton: {
-    textAlign: 'center',
-    color: '#FFF',
-    backgroundColor: '#3B95F7'
   }
 });
 

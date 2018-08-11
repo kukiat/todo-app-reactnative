@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Button, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import globalStyle from '../styles'
 
 class Create extends Component {
   state = {
@@ -18,28 +19,32 @@ class Create extends Component {
 
   render() {
     return (
-      <View style={style.createContainer}>
+      <View style={style.container}>
         <TextInput 
           style={{height: 30, borderColor: 'gray', borderWidth: 1, marginBottom: 10}}
           placeholder='Title'
           onChangeText={(value) => this.setState({ title: value})}
         />
         <TextInput 
-          style={{ height: 50, borderColor: 'grey', borderWidth: 2, marginBottom: 10}}
+          style={{ height: 50, borderColor: 'grey', borderWidth: 1, marginBottom: 10}}
           placeholder='Description'
           onChangeText={(value) => this.setState({ description: value})}
         />
-        <Button title='Submit' onPress={this.handleCreate}/>
+        <TouchableOpacity 
+          style={globalStyle.buttonSuccess}
+          onPress={this.handleCreate}
+        >
+          <Text style={[globalStyle.textBold, { color: '#FFF' }]}>Submit</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
 
 const style = StyleSheet.create({
-  createContainer: {
+  container: {
     flex: 1,
-    color: '#00FF00',
-    padding: 10,
+    padding: 15,
   }
 })
 

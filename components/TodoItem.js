@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
+import globalStyles from '../styles'
 
 export default ({ todo }) => {
   return (
-      <Text style={{ fontSize: 18 }}>
+      <Text style={globalStyles.textNormal}>
         {todo.title}
       </Text>
   )

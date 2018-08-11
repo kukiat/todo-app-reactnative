@@ -20,7 +20,6 @@ class TodoDetail extends Component {
     const { todo } = this.props.navigation.state.params
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
-        <Text>{todo.id}</Text>
         <Text>{todo.title}</Text>
         <Text>{todo.description}</Text>
         <View style={{ flex:1, flexDirection: 'row'}}>
