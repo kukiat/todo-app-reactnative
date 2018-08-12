@@ -25,37 +25,39 @@ export default ({ switchFilter, filter }) => {
 const styles = StyleSheet.create({
   container: { 
     flexDirection: 'row', 
-    justifyContent: 'space-around',
     backgroundColor: '#FFF',
-    height: 40,
-    paddingTop: 5
+    padding: 9,
+    justifyContent: 'space-around'
   },
   enableFilterBtn: {
     width: 100,
-    height: 30,
-    borderWidth: 1.5,
-    borderRadius: 5,
+    height: 35,
+    borderWidth: 1,
+    borderRadius: 20,
     justifyContent: 'center',
+    backgroundColor: '#EC5A65',
     borderColor: '#EC5A65',
   },
   disableFilterBtn: {
     width: 100,
-    height: 30,
-    borderWidth: 1.5,
-    borderRadius: 5,
+    borderRadius: 20,
+    height: 35,
+    borderWidth: 1,
     justifyContent: 'center',
     borderColor: '#9da0a0',
   },
   disableText: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: '600',
     textTransform: 'capitalize',
     color: '#9da0a0'
   },
   enableText: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: '600',
     textTransform: 'capitalize',
-    color: '#EC5A65'
+    color: '#FFF'
   }
 })

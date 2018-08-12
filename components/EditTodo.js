@@ -34,15 +34,16 @@ class EditTodo extends Component {
             onChangeText={(value) => this.setState({ title: value})}
           />
         </View>
-        <View style={{ flex: 6, marginTop: 20 }}>
+        <View style={{ marginTop: 20, height: 250 }}>
           <TextInput 
+            multiline={true}
             style={[globalStyles.textArea, { color: '#3C3C3C' }]}
             value={description} 
             onChangeText={value => this.setState({ description: value })}
           />
         </View>
         <TouchableOpacity 
-          style={[globalStyles.buttonSuccess]}
+          style={[globalStyles.buttonSuccess, { marginTop: 'auto' }]}
           onPress={this.handleEdit}
         >
           <Text style={[globalStyles.textBold, { color: '#FFF' }]}>Submit</Text>

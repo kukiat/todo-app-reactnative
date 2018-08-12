@@ -31,6 +31,7 @@ class Create extends Component {
         </View>
         <View style={{ flex: 6, marginTop: 20 }}>
           <TextInput 
+            multiline={true}
             style={[styles.descriptionInput, { color: this.state.colorText }]}
             placeholder='Description'
             onChangeText={(value) => this.setState({ description: value})}
