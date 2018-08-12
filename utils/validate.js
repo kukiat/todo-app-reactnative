@@ -12,12 +12,19 @@ const cutSpaceText = (text) => {
   return text.trim().replace(/\s\s+/g, ' ')
 }
 
-export const validateTitle = (text) => {
+const validateTitle = (text) => {
   const result = cutSpaceText(text)
   return validateSmallLength(result)
 }
 
-export const validateDescription = (text) => {
+const validateDescription = (text) => {
   const result = cutSpaceText(text)
   return validateLargeLength(result)
+}
+
+export const validate = (title, description) => {
+  return {
+    title: validateTitle(title),
+    description: validateDescription(description)
+  }
 }

@@ -1,17 +1,35 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import globalStyles from '../styles'
+import { validate } from '../utils/validate'
 
 class TodoCreate extends Component {
   state = {
     title: '',
     description: '',
     date: '',
-    colorText: '#D9D9D9'
+    colorText: '#D9D9D9',
+    alert: {
+      title: false,
+      desc: false
+    }
+  }
+
+  validateForm = () => {
+    const { title, description, alert } = this.state 
+    const status = validate(title, description)
+    if(!status.title || !status.description) {
+      this.setState({ 
+        alert: Object.assign(alert, { title: !status.title, desc: !status.description }) 
+      })
+      return true
+    }
+    return false
   }
 
   handleCreate = () => {
     const { title, description } = this.state 
+    if(this.validateForm()) return
     const { createTodo } = this.props.navigation.state.params
     const date = new Date()
     createTodo({
@@ -32,6 +50,7 @@ class TodoCreate extends Component {
             onChangeText={(value) => this.setState({ title: value})}
             onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
           />
+          { this.state.alert.title && <Text style={styles.alertText}>Title should be 5-25 charactors</Text> }
         </View>
         <View style={{ flex: 6, marginTop: 20 }}>
           <TextInput 
@@ -41,6 +60,7 @@ class TodoCreate extends Component {
             onChangeText={(value) => this.setState({ description: value})}
             onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
           />
+          { this.state.alert.desc && <Text style={styles.alertText}>Description should be 10-300 charactors</Text> }
         </View>
         <TouchableOpacity 
           style={globalStyles.buttonSuccess}
@@ -62,6 +82,9 @@ const styles = StyleSheet.create({
   },
   descriptionInput: {
     fontSize: 20,
+  },
+  alertText: {
+    color: '#FF0000'
   }
 })
 export default TodoCreate
