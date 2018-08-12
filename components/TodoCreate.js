@@ -4,6 +4,9 @@ import globalStyles from '../styles'
 import { validate } from '../utils/validate'
 
 class TodoCreate extends Component {
+  static navigationOptions = {
+    title: 'Create'
+  }
   state = {
     title: '',
     description: '',

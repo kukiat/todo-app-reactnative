@@ -6,11 +6,7 @@ import globalStyles from '../styles'
 
 class TodoApp extends Component {
   static navigationOptions = {
-    title: 'TodoApp',
-    headerStyle: {
-      borderBottomWidth: 1,
-      borderBottomColor: '#316084'
-    }
+    title: 'TodoApp'
   }
   
   state = {
