@@ -29,7 +29,7 @@ $ source $HOME/.bash_profile
 > Select Emulator tab
 ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/emu.png)
 > Run Emulator
-![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/android1.png)
+![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/android2.png)
 
  ```bash
 $ npm start
