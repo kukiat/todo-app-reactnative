@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, AsyncStorage, ScrollView, Text } from 'react-native';
 import TodoItem from './TodoItem'
-import CheckBox from 'react-native-check-box'
-import FilterTodo from './FilterTodo'
+import TodoFilter from './TodoFilter'
 import globalStyles from '../styles'
 
-class Todo extends Component {
+class TodoApp extends Component {
   static navigationOptions = {
     title: 'TodoApp',
     headerStyle: {
@@ -22,9 +21,7 @@ class Todo extends Component {
   async componentDidMount() {
     try {
       const todos = await AsyncStorage.getItem('todos')
-      // await AsyncStorage.clear()
       if(todos === null) {
-        alert('new User')
         await AsyncStorage.setItem('todos', JSON.stringify([]))
       }else {
         this.setState({ todos: JSON.parse(todos) })
@@ -108,31 +105,24 @@ class Todo extends Component {
     const { navigate } = this.props.navigation
     return (
       <View style={globalStyles.layout}>
-        <FilterTodo filter={filter} switchFilter={this.switchFilter}/>
-        <ScrollView style={{marginTop: 4}}>
+        <TodoFilter filter={filter} switchFilter={this.switchFilter}/>
+        <ScrollView style={{ marginTop: 4 }}>
           { filterTodos.map(todo => (
-              <TouchableOpacity 
+              <TodoItem 
                 key={todo.id} 
-                style={styles.todoItem}
+                todo={todo} 
+                checkTodo={this.checkTodo}
                 onPress={() => navigate('TodoDetail', { 
                   todo, 
                   editTodo: this.editTodo,
                   deleteTodo: this.deleteTodo
                 })}
-              >
-                <CheckBox 
-                  style={{ marginHorizontal: 10 }} 
-                  checkBoxColor='#EC5A65'
-                  isChecked={ todo.status } 
-                  onClick={() => this.checkTodo(todo)}
-                />
-                <TodoItem todo={todo}/>
-            </TouchableOpacity>
+              />
           ))}
         </ScrollView>
         <View style={{ paddingHorizontal: 15, paddingVertical: 5 }}>
           <TouchableOpacity 
-            onPress={() => navigate('Create', {
+            onPress={() => navigate('TodoCreate', {
               createTodo: this.createTodo
             })}
             style={globalStyles.buttonOriginal}
@@ -145,15 +135,4 @@ class Todo extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  todoItem: {
-    flexDirection: 'row',
-    height: 46,
-    backgroundColor: '#FFF',
-    marginBottom: 4,
-    alignItems: 'center',
-    fontSize: 20,
-  }
-});
-
-export default Todo
+export default TodoApp

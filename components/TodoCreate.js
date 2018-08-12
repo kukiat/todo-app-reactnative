@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import globalStyles from '../styles'
 
-class Create extends Component {
+class TodoCreate extends Component {
   state = {
     title: '',
     description: '',
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   }
 })
-export default Create
+export default TodoCreate

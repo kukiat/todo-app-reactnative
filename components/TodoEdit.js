@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, TouchableOpacity, TextInput, Text } from 'react-native'
 import globalStyles from '../styles'
 
-class EditTodo extends Component {
+class TodoEdit extends Component {
   static navigationOptions = {
     title: 'Edit'
   }
@@ -53,4 +53,4 @@ class EditTodo extends Component {
   }
 }
 
-export default EditTodo
+export default TodoEdit

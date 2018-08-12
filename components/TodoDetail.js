@@ -14,7 +14,7 @@ class TodoDetail extends Component {
 
   handleEdit = () => {
     const { todo, editTodo } = this.props.navigation.state.params
-    this.props.navigation.navigate('EditTodo', { todo, editTodo })
+    this.props.navigation.navigate('TodoEdit', { todo, editTodo })
   }
 
   render() {

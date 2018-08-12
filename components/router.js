@@ -1,12 +1,12 @@
 import { createStackNavigator } from 'react-navigation'
-import Todo from './Todo'
-import Create from './Create'
+import TodoApp from './TodoApp'
+import TodoCreate from './TodoCreate'
 import TodoDetail from './TodoDetail'
-import EditTodo from './EditTodo'
+import TodoEdit from './TodoEdit'
 
 export default createStackNavigator({
-  Todo: { screen: Todo },
-  Create: { screen: Create },
+  Todo: { screen: TodoApp },
+  TodoCreate: { screen: TodoCreate },
   TodoDetail:  { screen: TodoDetail },
-  EditTodo: { screen: EditTodo }
+  TodoEdit: { screen: TodoEdit }
 })
