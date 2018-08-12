@@ -8,7 +8,6 @@ class TodoApp extends Component {
   static navigationOptions = {
     title: 'TodoApp'
   }
-  
   state = {
     todos: [],
     filter: 'ALL'
