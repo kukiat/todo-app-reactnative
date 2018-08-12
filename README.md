@@ -24,9 +24,13 @@ $ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 $ source $HOME/.bash_profile
 ```
 - Open Android Studio
-- Open Android Emulator 
+- Open Android Emulator
+
+> Select Emulator tab
 ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/emu.png)
+> Run Emulator
 ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/android1.png)
+
  ```bash
 $ npm start
 $ react-native run-android
