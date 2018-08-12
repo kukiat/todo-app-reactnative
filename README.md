@@ -25,8 +25,8 @@ $ source $HOME/.bash_profile
 ```
 - Open Android Studio
 - Open Android Emulator 
-![Alt text](./screen/android1.png "Optional Title")
-![Alt text](./screen/android2.png "Optional Title")
+![Alt text](./screen/emu.png)
+![Alt text](./screen/android2.png)
  ```bash
 $ npm start
 $ react-native run-android
