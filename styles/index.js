@@ -13,13 +13,19 @@ export default StyleSheet.create({
     backgroundColor: GREEN_COLOR,
     borderRadius: 25,
     height: 40,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   buttonOriginal: {
     backgroundColor: ORANGE_COLOR,
     borderRadius: 25,
     height: 40,
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  buttonOriginal: {
+    backgroundColor: ORANGE_COLOR,
+    borderRadius: 25,
+    height: 40,
+    justifyContent: 'center',
   },
   textDefault: {
     fontSize: 18,
