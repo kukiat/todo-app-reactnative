@@ -22,7 +22,9 @@ class Todo extends Component {
   async componentDidMount() {
     try {
       const todos = await AsyncStorage.getItem('todos')
+      // await AsyncStorage.clear()
       if(todos === null) {
+        alert('new User')
         await AsyncStorage.setItem('todos', JSON.stringify([]))
       }else {
         this.setState({ todos: JSON.parse(todos) })
@@ -39,12 +41,17 @@ class Todo extends Component {
   createTodo = ({ title, description }) => {
     const { todos } = this.state
     const id = todos.length ? todos[todos.length - 1].id + 1 : 0
+    const date = new Date().toLocaleTimeString()
     this.setState({
       todos: [...todos, { 
           id, 
           title, 
           description,
-          status: false
+          status: false,
+          date: {
+            created: date,
+            lastUpdated: date
+          }
         }
       ],
       filter: 'ALL'
@@ -56,6 +63,7 @@ class Todo extends Component {
     const index = newTodos.findIndex(todo => todo.id === id)
     newTodos[index].title = title
     newTodos[index].description = description
+    newTodos[index].date.lastUpdated = new Date().toLocaleTimeString()
     this.setState({ todos: newTodos })
     this.props.navigation.navigate('TodoDetail', { 
       todo: this.state.todos[index], 

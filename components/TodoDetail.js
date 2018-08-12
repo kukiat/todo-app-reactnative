@@ -21,10 +21,14 @@ class TodoDetail extends Component {
     const { todo } = this.props.navigation.state.params
     return (
       <View style={[globalStyles.layout, { padding: 25 }]}>
-        <View style={{ height: 40 }}>
+        <View style={[styles.lineTop, { height: 40 }]}>
           <Text style={[globalStyles.textHeader, { color: '#021312' }]}>{todo.title}</Text>
         </View>
         <View style={{ flex: 1, marginTop: 12 }}>
+          { todo.date.created === todo.date.lastUpdated ? 
+            <Text style={styles.textSmall}>Created {todo.date.created}</Text> 
+            : <Text style={styles.textSmall}>Last Edited {todo.date.lastUpdated}</Text>
+          }
           <Text style={globalStyles.textDefault}>{todo.description}</Text>
         </View>
         <View style={{ flexDirection: 'row', borderTopWidth: 1, borderTopColor: '#95a5a6', paddingTop: 15 }}>
@@ -54,9 +58,14 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
   },
-  lignTop: {
+  lineTop: {
     borderBottomWidth: 1, 
     borderBottomColor: '#95a5a6'
+  },
+  textSmall: {
+    fontSize: 12,
+    fontStyle: 'italic',
+    color: '#3498db'
   }
 })
 export default TodoDetail
