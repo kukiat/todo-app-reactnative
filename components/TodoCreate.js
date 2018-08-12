@@ -50,7 +50,7 @@ class TodoCreate extends Component {
             onChangeText={(value) => this.setState({ title: value})}
             onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
           />
-          { this.state.alert.title && <Text style={styles.alertText}>Title should be 5-25 charactors</Text> }
+          { this.state.alert.title && <Text style={globalStyles.alertText}>Title should be 5-25 charactors</Text> }
         </View>
         <View style={{ flex: 6, marginTop: 20 }}>
           <TextInput 
@@ -60,7 +60,7 @@ class TodoCreate extends Component {
             onChangeText={(value) => this.setState({ description: value})}
             onFocus= {() => this.setState({ colorText: '#3C3C3C' })}
           />
-          { this.state.alert.desc && <Text style={styles.alertText}>Description should be 10-300 charactors</Text> }
+          { this.state.alert.desc && <Text style={globalStyles.alertText}>Description should be 10-300 charactors</Text> }
         </View>
         <TouchableOpacity 
           style={globalStyles.buttonSuccess}
@@ -82,9 +82,6 @@ const styles = StyleSheet.create({
   },
   descriptionInput: {
     fontSize: 20,
-  },
-  alertText: {
-    color: '#FF0000'
   }
 })
 export default TodoCreate

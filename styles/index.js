@@ -45,6 +45,9 @@ export default StyleSheet.create({
     fontSize: 22,
     fontWeight: '500'
   },
+  alertText: {
+    color: '#FF0000'
+  },
   textInput: {
     fontSize: 18,
     color: '#D2D2D2'
