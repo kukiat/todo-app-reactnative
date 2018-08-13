@@ -1,23 +1,26 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export default ({ switchFilter, filter }) => {
-  const btnType = ['ALL', 'COMPLETE', 'ACTIVE']
+export default ({ switchFilter, filter, filterTodos }) => {
+  const data = ['ALL', 'COMPLETE', 'ACTIVE']
   return (
     <View style={styles.container}>
-      { btnType.map((type, index) => (
-        <TouchableOpacity 
-          key={index}
-          style={filter === type ? styles.enableFilterBtn : styles.disableFilterBtn} 
-          onPress={() => switchFilter(type)}
-        >
-          <Text 
-            style={filter === type ? styles.enableText : styles.disableText}
+      { data.map((type, index) => {
+        const length = filterTodos(type).length
+        return (
+          <TouchableOpacity 
+            key={index}
+            style={filter === type ? styles.enableFilterBtn : styles.disableFilterBtn} 
+            onPress={() => switchFilter(type)}
           >
-            {type}
-          </Text>
-        </TouchableOpacity>
-      ))}
+            <Text 
+              style={filter === type ? styles.enableText : styles.disableText}
+            >
+              {length} {type}
+            </Text>
+          </TouchableOpacity>
+        )
+      })}
     </View>
   )
 }
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   enableFilterBtn: {
-    width: 100,
+    width: 110,
     height: 35,
     borderWidth: 1,
     borderRadius: 20,
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
     borderColor: '#EC5A65',
   },
   disableFilterBtn: {
-    width: 100,
+    width: 110,
     borderRadius: 20,
     height: 35,
     borderWidth: 1,
@@ -48,14 +51,14 @@ const styles = StyleSheet.create({
   },
   disableText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
     textTransform: 'capitalize',
     color: '#9da0a0'
   },
   enableText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
     textTransform: 'capitalize',
     color: '#FFF'

@@ -77,7 +77,8 @@ class TodoApp extends Component {
     this.setState({ filter: type })
   }
 
-  filterTodos = (todos, filter) => {
+  filterTodos = (filter) => {
+    const { todos } = this.state
     switch(filter) {
       case 'ALL':
         return todos
@@ -95,14 +96,18 @@ class TodoApp extends Component {
   }
 
   render() {
-    const { todos, filter } = this.state
-    const filterTodos = this.filterTodos(todos, filter)
+    const { filter } = this.state
+    const todos = this.filterTodos(filter)
     const { navigate } = this.props.navigation
     return (
       <View style={globalStyles.layout}>
-        <TodoFilter filter={filter} switchFilter={this.switchFilter}/>
+        <TodoFilter 
+          filter={filter} 
+          filterTodos={this.filterTodos}
+          switchFilter={this.switchFilter}
+        />
         <ScrollView style={{ marginTop: 4 }}>
-          { filterTodos.map(todo => (
+          { todos.map(todo => (
               <TodoItem 
                 key={todo.id} 
                 todo={todo} 
