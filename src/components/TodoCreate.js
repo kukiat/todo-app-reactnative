@@ -10,7 +10,6 @@ class TodoCreate extends Component {
   state = {
     title: '',
     description: '',
-    date: '',
     colorText: '#D9D9D9',
     alert: {
       title: false,
@@ -34,11 +33,9 @@ class TodoCreate extends Component {
     const { title, description } = this.state 
     if(this.validateForm()) return
     const { createTodo } = this.props.navigation.state.params
-    const date = new Date()
     createTodo({
       title, 
       description,
-      date: `${date.toLocaleString()}`
     })
     this.props.navigation.goBack()
   }

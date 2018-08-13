@@ -34,7 +34,6 @@ class TodoApp extends Component {
   createTodo = ({ title, description }) => {
     const { todos } = this.state
     const id = todos.length ? todos[todos.length - 1].id + 1 : 0
-    const date = new Date().toLocaleTimeString()
     this.setState({
       todos: [...todos, { 
           id, 
