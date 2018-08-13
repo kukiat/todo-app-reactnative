@@ -48,7 +48,7 @@ $ npm start
 $ react-native run-android
 ```
 
-# ปล.
+# Credit
 
 ใช้ react-native-cli ในการขึ้นโปรเจ็ค โดยการติดตั้งทั้งหมดเอามาจาก Doc มันเลยครับ
 
