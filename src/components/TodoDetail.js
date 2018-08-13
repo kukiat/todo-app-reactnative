@@ -29,7 +29,7 @@ class TodoDetail extends Component {
             <Text style={styles.textSmall}>Created {todo.date.created}</Text> 
             : <Text style={styles.textSmall}>Last Edited {todo.date.lastUpdated}</Text>
           }
-          <Text style={globalStyles.textDefault}>{todo.description}</Text>
+          <Text style={[globalStyles.textDefault, { marginTop: 15 }]}>{todo.description}</Text>
         </View>
         <View style={{ flexDirection: 'row', borderTopWidth: 1, borderTopColor: '#95a5a6', paddingTop: 15 }}>
           <TouchableOpacity 
