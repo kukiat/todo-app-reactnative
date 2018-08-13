@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, AsyncStorage, ScrollView, Text } from 'react-native';
+import { View, TouchableOpacity, AsyncStorage, ScrollView, Text } from 'react-native';
 import TodoItem from './TodoItem'
 import TodoFilter from './TodoFilter'
 import globalStyles from '../styles'
+import { getDate } from '../utils/date'
 
 class TodoApp extends Component {
   static navigationOptions = {
@@ -41,8 +42,8 @@ class TodoApp extends Component {
           description,
           status: false,
           date: {
-            created: date,
-            lastUpdated: date
+            created: getDate(),
+            lastUpdated: getDate()
           }
         }
       ],
@@ -55,7 +56,7 @@ class TodoApp extends Component {
     const index = newTodos.findIndex(todo => todo.id === id)
     newTodos[index].title = title
     newTodos[index].description = description
-    newTodos[index].date.lastUpdated = new Date().toLocaleTimeString()
+    newTodos[index].date.lastUpdated = getDate()
     this.setState({ todos: newTodos })
     this.props.navigation.navigate('TodoDetail', { 
       todo: this.state.todos[index], 

@@ -5,7 +5,7 @@ import TodoDetail from './TodoDetail'
 import TodoEdit from './TodoEdit'
 
 export default createStackNavigator({
-  Todo: { screen: TodoApp },
+  TodoApp: { screen: TodoApp },
   TodoCreate: { screen: TodoCreate },
   TodoDetail:  { screen: TodoDetail },
   TodoEdit: { screen: TodoEdit }

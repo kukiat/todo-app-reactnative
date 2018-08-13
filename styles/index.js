@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export const GREEN_COLOR = '#53A451'
 export const ORANGE_COLOR = '#EC5A65'
 export const BACKGROUND_COLOR = '#F3F4F4'
-
+export const GREY_COLOR = '#D2D2D2'
 export default StyleSheet.create({
   layout: { 
     flex: 1, 
@@ -50,11 +50,11 @@ export default StyleSheet.create({
   },
   textInput: {
     fontSize: 18,
-    color: '#D2D2D2'
+    color: GREY_COLOR
   },
   textArea: {
     fontSize: 18,
-    color: '#D2D2D2'
+    color: GREY_COLOR
   },
   lineBottom: {
     borderBottomWidth: 1,
