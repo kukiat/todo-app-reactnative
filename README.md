@@ -1,6 +1,7 @@
 # TodoApp
 
 ```bash
+$ npm install -g react-native-cli
 $ git clone https://github.com/kukiat/todo-app-reactnative.git
 $ cd todo-app-reactnative
 $ npm install
