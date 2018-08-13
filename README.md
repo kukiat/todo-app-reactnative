@@ -29,10 +29,13 @@ $ source $HOME/.bash_profile
   - เปิด Android Studio
   - เปิด Android Emulator
 
-  > 1. Select Emulator tab
+  > 1. เปิด Android Studio หลังจากนั้นกด Start Project แล้วกด Next เรื่อยๆ
+  ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/home.png)
+
+  > 2. Select Emulator tab
   ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/emu.png)
 
-  > 2. Run Emulator
+  > 3. Run Emulator
   ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/start.png)
 
   - สร้างไฟล์ local.properties ในโฟลเดอร์โปรเจ็ค
