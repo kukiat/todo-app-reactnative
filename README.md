@@ -1,35 +1,45 @@
 # TodoApp
-#
+
 ```bash
 $ git clone https://github.com/kukiat/todo-app-reactnative.git
 $ cd todo-app-reactnative
 $ npm install
 ```
 # installation
-  - install NodeJS
-  - install watchman
+  - ติดตั้ง NodeJS
+  - ติดตั้ง watchman
 # For ios
-  - install Xcode last version
+  - ติดตั้ง Xcode last version
 ```bash
+
 $ npm start
 $ react-native run-ios
 ```
 
 # For android
-  - install Android Studio
-  - Install the Android SDK
+  - ติดตั้ง Android Studio
+  - ติดตั้ง Android SDK
+
 ```bash
 $ export ANDROID_HOME=$HOME/Library/Android/sdk 
 $ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 $ source $HOME/.bash_profile
 ```
-- Open Android Studio
-- Open Android Emulator
 
-> Select Emulator tab
-![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/emu.png)
-> Run Emulator
-![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/start.png)
+  - เปิด Android Studio
+  - เปิด Android Emulator
+
+  > 1. Select Emulator tab
+  ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/emu.png)
+
+  > 2. Run Emulator
+  ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/start.png)
+
+  - สร้างไฟล์ local.properties ในโฟลเดอร์โปรเจ็ค
+
+```bash
+$ echo sdk.dir = $HOME/Library/Android/sdk > android/local.properties 
+```
 
  ```bash
 $ npm start
