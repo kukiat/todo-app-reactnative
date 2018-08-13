@@ -55,7 +55,7 @@ class TodoCreate extends Component {
           />
           { this.state.alert.title && <Text style={globalStyles.alertText}>Title should be 5-25 charactors</Text> }
         </View>
-        <View style={{ flex: 6, marginTop: 20 }}>
+        <View style={[globalStyles.lineBottom, { marginTop: 25 }]}>
           <TextInput 
             multiline={true}
             style={[styles.descriptionInput, { color: this.state.colorText }]}
@@ -66,9 +66,9 @@ class TodoCreate extends Component {
           { this.state.alert.desc && <Text style={globalStyles.alertText}>Description should be 10-300 charactors</Text> }
         </View>
         <TouchableOpacity 
-          style={globalStyles.buttonSuccess}
-          onPress={this.handleCreate}
-        >
+            style={[globalStyles.buttonSuccess, { marginTop: 'auto' }]}
+            onPress={this.handleCreate}
+          >
           <Text style={[globalStyles.textBold, { color: '#FFF' }]}>Submit</Text>
         </TouchableOpacity>
       </View>

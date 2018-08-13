@@ -55,7 +55,7 @@ class TodoEdit extends Component {
           />
           { alert.title && <Text style={globalStyles.alertText}>Title should be 5-25 charactors</Text> }
         </View>
-        <View style={{ marginTop: 25, height: 250 }}>
+        <View style={[globalStyles.lineBottom, { marginTop: 25 }]}>
           <TextInput 
             multiline={true}
             style={[globalStyles.textArea, { color: '#3C3C3C' }]}
