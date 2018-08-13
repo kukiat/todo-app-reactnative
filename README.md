@@ -26,8 +26,7 @@ $ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 $ source $HOME/.bash_profile
 ```
 
-  - เปิด Android Studio
-  - เปิด Android Emulator
+  - เปิดใช้งาน Android Emulator ดังนี้
 
   > 1. เปิด Android Studio หลังจากนั้นกด Start Project แล้วกด Next เรื่อยๆ
   ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/home.png)
@@ -48,3 +47,10 @@ $ echo sdk.dir = $HOME/Library/Android/sdk > android/local.properties
 $ npm start
 $ react-native run-android
 ```
+
+# ปล.
+
+ใช้ react-native-cli ในการขึ้นโปรเจ็ค โดยการติดตั้งทั้งหมดเอามาจาก Doc มันเลยครับ
+
+See [react-native-cli](https://facebook.github.io/react-native/docs/getting-started.html)
+
