@@ -34,9 +34,19 @@ class TodoEdit extends Component {
     return false
   }
 
+  checkSameValue = () => {
+    const { todo } = this.props.navigation.state.params
+    const { title, description } = this.state
+    return (todo.title === title) && (todo.description === description) ? true : false
+  }
+  
   handleEdit = () => {
     const { editTodo } = this.props.navigation.state.params
     const { id, title, description } = this.state
+    if(this.checkSameValue()) {
+      this.props.navigation.goBack()
+      return
+    }
     if(this.validateForm())
       return
     editTodo({ id, title, description })
