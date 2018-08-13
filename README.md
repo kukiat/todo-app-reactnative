@@ -20,6 +20,7 @@ $ react-native run-ios
 # For android
   - ติดตั้ง Android Studio
   - ติดตั้ง Android SDK
+  - set path สำหรับ android ดังนี้
 
 ```bash
 $ export ANDROID_HOME=$HOME/Library/Android/sdk 
@@ -38,7 +39,7 @@ $ source $HOME/.bash_profile
   > 3. Run Emulator
   ![Alt text](https://raw.githubusercontent.com/kukiat/todo-app-reactnative/master/screen/start.png)
 
-  - สร้างไฟล์ local.properties ในโฟลเดอร์โปรเจ็ค
+  - สร้างไฟล์ local.properties ในโฟลเดอร์โปรเจ็ค ดังนี้
 
 ```bash
 $ echo sdk.dir = $HOME/Library/Android/sdk > android/local.properties 
@@ -51,7 +52,7 @@ $ react-native run-android
 
 # Credit
 
-ใช้ react-native-cli ในการขึ้นโปรเจ็ค โดยการติดตั้งทั้งหมดเอามาจาก Doc มันเลยครับ
+ใช้ react-native-cli ในการขึ้นโปรเจ็ค โดยการติดตั้งทั้งหมดเอามาจาก Doc โดยตรงครับ
 
 See [react-native-cli](https://facebook.github.io/react-native/docs/getting-started.html)
 

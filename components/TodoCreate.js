@@ -46,7 +46,7 @@ class TodoCreate extends Component {
   render() {
     return (
       <View style={[globalStyles.layout, { flex: 1, padding: 25 }]}>
-        <View style={globalStyles.titleInput}>
+        <View style={globalStyles.lineBottom}>
           <TextInput 
             style={[globalStyles.textDefault, { color: this.state.colorText }]}
             placeholder='Title'
@@ -77,12 +77,6 @@ class TodoCreate extends Component {
 }
 
 const styles = StyleSheet.create({
-  titleInput: {
-    height: 40, 
-    borderBottomWidth: 1,
-    borderBottomColor: '#D5D5D5',
-    fontSize: 20
-  },
   descriptionInput: {
     fontSize: 20,
   }

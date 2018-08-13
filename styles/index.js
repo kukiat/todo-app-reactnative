@@ -56,8 +56,7 @@ export default StyleSheet.create({
     fontSize: 18,
     color: '#D2D2D2'
   },
-  titleInput: {
-    height: 40, 
+  lineBottom: {
     borderBottomWidth: 1,
     borderBottomColor: '#D5D5D5',
     fontSize: 20

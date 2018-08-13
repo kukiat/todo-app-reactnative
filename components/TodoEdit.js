@@ -43,25 +43,26 @@ class TodoEdit extends Component {
   }
 
   render() {
-    const { title, description } = this.state
+    const { title, description, alert } = this.state
     return(
       <View style={[globalStyles.layout, { padding: 25 }]}>
-        <View style={globalStyles.titleInput}>
+        <View style={globalStyles.lineBottom}>
           <TextInput 
+            multiline={true}
             style={[globalStyles.textInput, { color: '#3C3C3C' }]}
             value={title} 
             onChangeText={(value) => this.setState({ title: value})}
           />
-          { this.state.alert.title && <Text style={globalStyles.alertText}>Title should be 5-25 charactors</Text> }
+          { alert.title && <Text style={globalStyles.alertText}>Title should be 5-25 charactors</Text> }
         </View>
-        <View style={{ marginTop: 20, height: 250 }}>
+        <View style={{ marginTop: 25, height: 250 }}>
           <TextInput 
             multiline={true}
             style={[globalStyles.textArea, { color: '#3C3C3C' }]}
             value={description} 
             onChangeText={value => this.setState({ description: value })}
           />
-          { this.state.alert.desc && <Text style={globalStyles.alertText}>Description should be 10-300 charactors</Text> }
+          { alert.desc && <Text style={globalStyles.alertText}>Description should be 10-300 charactors</Text> }
         </View>
         <TouchableOpacity 
           style={[globalStyles.buttonSuccess, { marginTop: 'auto' }]}
