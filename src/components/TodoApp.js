@@ -63,7 +63,7 @@ class TodoApp extends Component {
     )
     this.setState({ todos: newTodos })
     this.props.navigation.navigate('TodoDetail', { 
-      todo: this.state.todos[index], 
+      todo: newTodos.find(todo => todo.id === id), 
       editTodo: this.editTodo,
       deleteTodo: this.deleteTodo
     })
