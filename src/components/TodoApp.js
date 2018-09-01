@@ -70,9 +70,7 @@ class TodoApp extends Component {
   }
 
   deleteTodo = (id) => {
-    const newTodos = [...this.state.todos]
-    const indexTodo = newTodos.findIndex(todo => todo.id === id)
-    newTodos.splice(indexTodo, 1)
+    const newTodos = this.state.todos.filter(todo => todo.id !== id)
     this.setState({ todos: newTodos })
   }
 
