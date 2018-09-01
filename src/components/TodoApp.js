@@ -51,11 +51,16 @@ class TodoApp extends Component {
   }
 
   editTodo = ({ id, title, description }) => {
-    const newTodos = [...this.state.todos]
-    const index = newTodos.findIndex(todo => todo.id === id)
-    newTodos[index].title = title
-    newTodos[index].description = description
-    newTodos[index].date.lastUpdated = getDate()
+    const newTodos = this.state.todos.map(todo => 
+      todo.id === id 
+        ? {...todo, 
+          title, 
+          description, 
+          date: {
+            ...todo.date, lastUpdated: getDate()
+          }}
+        : todo
+    )
     this.setState({ todos: newTodos })
     this.props.navigation.navigate('TodoDetail', { 
       todo: this.state.todos[index], 
