@@ -93,8 +93,11 @@ class TodoApp extends Component {
   }
 
   checkTodo = ({ id, status }) => {
-    const newTodos = [...this.state.todos]
-    newTodos[newTodos.findIndex(todo => todo.id === id)].status = !status
+    const newTodos = this.state.todos.map(todo => 
+      todo.id === id 
+        ? {...todo, 
+          status: !status 
+        }: todo)
     this.setState({ todos: newTodos })
   }
 
